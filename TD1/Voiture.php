@@ -3,18 +3,18 @@
 class Voiture
 {
 
-    private $immatriculation;
-    private $marque;
-    private $couleur;
-    private $nbSieges; // Nombre de places assises
+    private String $immatriculation;
+    private String $marque;
+    private String $couleur;
+    private int $nbSieges; // Nombre de places assises
 
     // un getter
 
     public function __construct(
-        $immatriculation,
-        $marque,
-        $couleur,
-        $nbSieges
+        String $immatriculation,
+        String $marque,
+        String $couleur,
+        int $nbSieges
     )
     {
         $this->immatriculation = $immatriculation;
@@ -23,50 +23,20 @@ class Voiture
         $this->nbSieges = $nbSieges;
     }
 
-    public function __toString()
-    {
+    public function __toString(){
         return $this->immatriculation . ' de marque ' . $this->marque . ' (couleur ' . $this->couleur . ', ' . $this->nbSieges . ') ';
     }
 
-    public function getMarque()
-    {
-        return $this->marque;
-    }
+    public function setMarque(String $marque): void {$this->marque = $marque;}
+    public function setImmatriculation(String $immatriculation): void {$this->immatriculation = substr($immatriculation, 0, 8);}
+    public function setCouleur(String $couleur): void {$this->couleur = $couleur;}
+    public function setNbSieges(int $nbSieges): void {$this->nbSieges = $nbSieges;}
 
-    public function setMarque($marque)
-    {
-        $this->marque = $marque;
-    }
+    public function getMarque(){return $this->marque;}
+    public function getImmatriculation(){return $this->immatriculation;}
+    public function getCouleur(){return $this->couleur;}
+    public function getNbSieges(){return $this->nbSieges;}
 
-    public function getImmatriculation()
-    {
-        return $this->immatriculation;
-    }
-
-    public function setImmatriculation($immatriculation): void
-    {
-        $this->immatriculation = substr($immatriculation, 0, 8);
-    }
-
-    public function getCouleur()
-    {
-        return $this->couleur;
-    }
-
-    public function setCouleur($couleur): void
-    {
-        $this->couleur = $couleur;
-    }
-
-    public function getNbSieges()
-    {
-        return $this->nbSieges;
-    }
-
-    public function setNbSieges($nbSieges): void
-    {
-        $this->nbSieges = $nbSieges;
-    }
 }
 
 ?>
